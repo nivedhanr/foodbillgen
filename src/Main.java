@@ -6,20 +6,20 @@ import java.util.Scanner;
 
 class Product
 {
-    private int id;
-    private String customerName;
+    private int menucode;
+    private String customer;
     private int qty;
-    private double price;
+    private double rate;
     private double totalPrice;
 
 
 
     Product(String customerName,int id, int qty, double price, double totalPrice)
     {
-        this.id=id;
-        this.customerName = customerName;
+        this.menucode=menucode;
+        this.customer = customer;
         this.qty = qty;
-        this.price = price;
+        this.rate = rate;
         this.totalPrice = totalPrice;
     }
 
@@ -28,8 +28,8 @@ class Product
     static void display(ArrayList<Product> p) {
         System.out.println("\n--------------Transaction History---------------\n");
         for (Product e : p) {
-            System.out.println(("Name:" + e.customerName));
-            System.out.println(("ID:" + e.id));
+            System.out.println(("Name:" + e.customer));
+            System.out.println(("Id:" + e.menucode));
             System.out.println(("Company:" + e.qty));
             System.out.println(("Contact:" + e.totalPrice));
             System.out.println("   ");
@@ -40,14 +40,14 @@ class Product
 
     public void display()
     {
-        System.out.println("Product: " +id +"\n"+"Customer Name "+ customerName +"\n" + "Quantity "+ qty +"\n" +
-                "Single Piece Price:" +price +"\n" + "Total price"+ totalPrice);
+        System.out.println("Product: " +menucode +"\n"+"Customer Name "+ customer +"\n" + "Quantity "+ qty +"\n" +
+                "Single Piece Price:" +rate +"\n" + "Total price"+ totalPrice);
     }
 }
 class Shopping {
     public static void main(String args[]) {
         int quantity = 0;
-        double price = 0.0;
+        double rate = 0.0;
         double totalPrice = 0.0;
         double overAllPrice = 0.0;
         char choice = '\0';
@@ -60,28 +60,28 @@ class Shopping {
             String customername = scan.next();
             do {
                 System.out.print("Product ID: ");
-                int id = scan.nextInt();
+                int menucode = scan.nextInt();
                 System.out.print("Quantity: ");
                 quantity = scan.nextInt();
-                switch (id) {
+                switch (menucode) {
                     case 1:
-                        price = 10;
+                        rate = 10;
                         totalPrice = 10 * quantity;
                         break;
                     case 2:
-                        price = 15;
+                        rate = 15;
                         totalPrice = 15 * quantity;
                         break;
                     case 3:
-                        price = 10;
+                        rate = 10;
                         totalPrice = 10 * quantity;
                         break;
                     case 4:
-                        price = 8;
+                        rate = 8;
                         totalPrice = 8 * quantity;
                         break;
                     case 5:
-                        price = 6;
+                        rate = 6;
                         totalPrice = 6 * quantity;
                         break;
                     case 6:
@@ -93,7 +93,7 @@ class Shopping {
 
                 }
                 overAllPrice = overAllPrice + totalPrice;
-                product.add(new Product(customername, id, quantity, price, totalPrice));
+                product.add(new Product(customername, menucode, quantity, rate, totalPrice));
                 System.out.print("Want to add more items? (y or n): ");
                 choice = scan.next().charAt(0);
                 scan.nextLine();
